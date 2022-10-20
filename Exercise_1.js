@@ -2,6 +2,24 @@
 // Write function have one paramiter(n). Return n numbers of Fibonacci number.
 // input: 6
 // output:1 1 2 3 5 8
+const Fibonacci = (n) => {
+    if (n === 1 || n === 2) {
+        return 1;
+    }
+    else {
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+}
+
+const FindFibonacci = (n) => {
+    var arrayOfFibonacci = [];
+    var i;
+    for (i = 0; i < n; i++)
+        arrayOfFibonacci[i] = Fibonacci(i + 1);
+    return arrayOfFibonacci;
+}
+console.log(FindFibonacci(6))
+
 
 const Fibonacci = (n) => {
     if (n === 1 || n === 2) {
@@ -29,14 +47,12 @@ console.log(FindFibonacci(6))
 // input: 4
 // output:false
 
-
 const checkPrime = (n) => {
     var i = 2;
     if (n < 2) {
         return false;
     }
     while (i < n) {
-
         if (n % i === 0) {
             return false
             break;
@@ -61,6 +77,7 @@ const sortAscending = (array) => {
                 temp = array[indexOfFirstLoop]
                 array[indexOfFirstLoop] = array[indexOfSecondLoop]
                 array[indexOfSecondLoop] = temp
+
             }
         }
     }
@@ -82,6 +99,7 @@ const sortDescending = (array) => {
                 temp = array[indexOfFirstLoop]
                 array[indexOfFirstLoop] = array[indexOfSecondLoop]
                 array[indexOfSecondLoop] = temp
+
             }
         }
     }
@@ -96,6 +114,26 @@ console.log(sortDescending(array))
 // Write function have one paramiter(n), then convert it to "hh:mm:ss" format.
 // input: 7826
 // output: 02:10:26
+const convertTime = (time) => {
+    var hours, minutes, seconds;
+    if (time != 0) {
+        hours = Math.floor(time / 3600)
+        minutes = Math.floor(time % 3600 / 60)
+        seconds = Math.floor(time % 3600 % 60)
+    }
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 0) {
+        minutes = "0" + minutes
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds
+    }
+    return hours + ":" + minutes + ":" + seconds;
+}
+
+console.log(convertTime(7826))
 
 const convertTime = (time) => {
     var hours, minutes, seconds;
@@ -169,5 +207,4 @@ const occurrencesOfCharacters = (string) => {
     }
     return result
 }
-
 console.log(occurrencesOfCharacters("Nguyen Thi Ut Vien".toLowerCase()))
