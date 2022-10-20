@@ -5,7 +5,7 @@ const inventors = [
   "Marie Curie",
   "Johannes Kepler",
   "Nicolaus Copernicus",
-  "Max Planck",
+  "Max Planck"
   "Katherine Blodgett",
   "Ada Lovelace",
   "Sarah E. Goode",
@@ -270,4 +270,3 @@ class User {
 };
 
 const user = new User();
-
