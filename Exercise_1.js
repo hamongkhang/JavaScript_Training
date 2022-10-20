@@ -30,3 +30,4 @@
 // Write function have one paramiter(n). Count the number of occurrences of each character in the string
 // input:  Nguyen Thi Ut Vien
 // output: n:3 g:1 u:2 y:1 e:2 t:2 h:1 i:2 v:1
+
