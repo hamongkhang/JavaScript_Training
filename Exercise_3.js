@@ -23,6 +23,7 @@ const arrays = [
   ];
   
   // task 1: Add a new user to the beginning of the array
+// program
 
   
   // task 2: Add a new user at the end of the array
