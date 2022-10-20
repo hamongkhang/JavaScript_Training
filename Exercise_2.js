@@ -165,7 +165,7 @@ const newArray=(name)=> {
 
 // Find the number divisible by 7.
 result = numbers.find(function (number) {
-  if (number != 0) {
+  if (number !== 0) {
     return number % 7 === 0;
   }
 }
