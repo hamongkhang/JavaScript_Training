@@ -5,7 +5,7 @@ const inventors = [
   "Marie Curie",
   "Johannes Kepler",
   "Nicolaus Copernicus",
-  "Max Planck"
+  "Max Planck",
   "Katherine Blodgett",
   "Ada Lovelace",
   "Sarah E. Goode",
@@ -64,7 +64,7 @@ console.log(result);
 
 // Print out an array of the numbers which are odd.
 result = numbers.filter(function (number) {
-  if ((number % 2 == 0) && (number > 0)) {
+  if ((number % 2 === 0) && (number > 0)) {
     return number
   }
 });
