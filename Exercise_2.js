@@ -233,7 +233,7 @@ console.log(checkPrime(4))
 //task 7: Write a class that includes 4 methods: add, update, remove, compare
 
 class User {
-  users = [{ id: 1, name: 'Lan' },
+  users = [{ id: 1, name: 'Loan' },
   { id: 2, name: 'Hoa' }];
 
   add(user) {
