@@ -127,7 +127,7 @@ console.log(result)
 const countSpace = (name) => {
   var count=0, i;
   for (i = 0; i < name.length; i++)
-    if (name[i] == " ") {
+    if (name[i] === " ") {
       count++
     };
   return count;
@@ -194,7 +194,7 @@ console.log(reverseArray(array))
 
 // task 4: write a recursive function that reverses an array
 const reverseArr = (array) => {
-  if (array.length == 0) {
+  if (array.length === 0) {
     return "";
   }
   var s = array.shift();
