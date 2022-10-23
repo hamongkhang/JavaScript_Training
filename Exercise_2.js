@@ -71,6 +71,7 @@ console.log(result);
 
 
 
+
 // Print out an array of the numbers that have two digits.
 result = numbers.filter(function (number) {
   if ((number > 9) && (number < 100)) {
