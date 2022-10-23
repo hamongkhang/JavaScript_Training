@@ -31,8 +31,7 @@ console.log(result);
 
 // Does every inventor have first name that's longer than 4 characters?
 result = inventors.some(function (name) {
-  var fname = name.split(" ")[0]
-  return fname > 4
+  return name.split(" ")[0] > 4
 });
 console.log(result)
 
@@ -54,7 +53,7 @@ console.log(result);
 // Print out an array of the inventors whose name has the same letter twice in a row (e.g. nn or mm).
 
 result = inventors.filter(function (name) {
-  for (var i = 0; i < name.length; i++) {
+  for (var i = 0; i < name.length -1; i++) {
     if (name[i] === name[i + 1]) {
       return name
     }
@@ -64,7 +63,7 @@ console.log(result);
 
 // Print out an array of the numbers which are odd.
 result = numbers.filter(function (number) {
-  if ((number % 2 === 0) && (number > 0)) {
+  if ((number > 0)&& (number % 2 === 0) ) {
     return number
   }
 });
@@ -82,19 +81,19 @@ console.log(result);
 
 
 // Print out an array of the numbers which are prime.
+function check_prime(number) {
+  var i;
+  if (number <= 1) { return false; }
+  for (i = 2; i <= number / 2; i++)
+    if (number % i === 0) { return false; }
+  return true;
+}
 result = numbers.filter(function (number) {
-  if (number <= 1) {
-    return false
-  }
-  for (var i = 2; i <= (Math.sqrt(number)); i++) {
-    if (number % i === 0) {
-      return false;
-    }
-    return true;
+  if (check_prime(number)) {
+    return number;
   }
 });
 console.log(result)
-
 
 /////////////////MAP/////////////////////////
 // Print out the first name of each inventor.
@@ -126,7 +125,7 @@ console.log(result)
 ////////////////////find/findIndex///////////////////////
 // Find the inventor that has a middle name.
 const countSpace = (name) => {
-  var count, i;
+  var count=0, i;
   for (i = 0; i < name.length; i++)
     if (name[i] == " ") {
       count++
@@ -142,26 +141,13 @@ console.log(result);
 
 
 // Bonus: Return a new array, that only has inventors without a middle name. (Hint: think about splice, if you use findIndex. But you may also use another of the methods you've learned about above.)
-const find_index = (name) => {
-  findIndexStart = inventors.findIndex(function (name) {
-    return countSpace(name) <= 1;
+// const find_index = (name) => {
+  result = inventors.filter(function (name) {
+    if( countSpace(name) <= 1){
+      return name
+    }
   });
-  return findIndexStart;
-}
-
-const newArray=(name)=> {
-  var array = "";
-  startArray = find_index(inventors);
-  endArray = name.length + 1;
-  array = array + inventors.slice(startArray, endArray);
-  return array;
-}
- var i = 0;
- while (i< inventors.length){
-  console.log(newArray(inventors[i]))
-  i++;
- };
- 
+  console.log(result)
 
 // Find the number divisible by 7.
 result = numbers.find(function (number) {
@@ -251,22 +237,25 @@ class User {
   { id: 2, name: 'Hoa' }];
 
   add(user) {
-    users.push({ id: 3, name: "Tha", age: 30 });
-    console.log(users);
+    const isExist = this.users.some(item=> item.id == user.id);
+    if (isExist) return this.users;
+    this.users=[...this.users,user];
+    return this.users;
   };
 
-  // update(user) {
-  //   var user = { id: 1, name: 'Lan' };
-  //   this.users.replace(user);
-  //   console.log(users)
-
-  // };
+  update(user) {
+    const index = this.users.findIndex(item=> item.id === user.id)
+    this.users[index]=user;
+    return this.users;
+  };
 
   remove(id) {
-    var user = { id: 1, name: 'Lan' };
-    user.splice(user.indexOf(user), 1)
-    console.log(users)
-  };
+    this.users = this.users.filter(item=> item.id !==id);
+    return this.users;
+};
 };
 
 const user = new User();
+console.log(user.add({id:3,name:"Vien"}));
+console.log(user.update({id:2, name:"Khang"}))
+console.log(user.remove(2));
