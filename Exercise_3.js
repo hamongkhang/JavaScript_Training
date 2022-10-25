@@ -40,7 +40,7 @@ const arrays = [
   // task 6: Transform the current array into a new array with the new field "class" of type string
 
   
-  // task 7: Find a user with age = 23
+  // task 7: Find a user with age = 23//filter
 
   
   // task 8: use for loop to get users with age >= 23
